@@ -1,13 +1,3 @@
-git add README.md
-git commit -m "first commit"
-git branch -M master
-git remote add origin https://github.com/elsfs/elsfs.git
-git push -u origin master
-
-git remote add origin https://github.com/elsfs/elsfs.git
-git branch -M main
-git push -u origin master
-
 ```java
        OkHttpClientOpenAIApiService service = OkHttpClientOpenAIApiService.builder("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").build();
 
