@@ -1,0 +1,28 @@
+[
+  {
+    "model": "text-davinci-003",
+    "prompt": [
+      "介绍一下中国"
+    ],
+    "max_tokens": 2000
+  },
+  {
+    "id": "cmpl-7B8iwnWrIBtKyyyQh3abXgL1eyHAx",
+    "object": "text_completion",
+    "created": 1682889498,
+    "model": "text-davinci-003",
+    "choices": [
+      {
+        "text": "古代儒家文化\n\n中国古代儒家文化是中国古代发展起来的一种文化传统，具有源远流长的历史。它把重点放在增强人的心智、培养人的道德规范，坚持“以德治国”，重视统治阶层的道德修养，把礼仪、孝道、乐德等专为治理政治手段而总结出一套完整的道德体系。儒家文化的理念也弥漫着中国的边远地区，在民间也广泛使用。",
+        "index": 0,
+        "logprobs": null,
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 11,
+      "completion_tokens": 306,
+      "total_tokens": 317
+    }
+  }
+]

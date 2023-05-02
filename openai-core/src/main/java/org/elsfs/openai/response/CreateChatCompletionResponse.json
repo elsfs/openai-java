@@ -1,0 +1,31 @@
+{
+  "model": "gpt-3.5-turbo",
+  "messages": [
+    {
+      "role": "user",
+      "content": "介绍一下中国"
+    }
+  ]
+}
+,
+{
+"id": "chatcmpl-7B8aqjNEip1V3aHP8PsawEWofGW1m",
+"object": "chat.completion",
+"created": 1682888996,
+"model": "gpt-3.5-turbo-0301",
+"usage": {
+"prompt_tokens": 14,
+"completion_tokens": 332,
+"total_tokens": 346
+},
+"choices": [
+{
+"message": {
+"role": "assistant",
+"content": "中国是位于亚洲东部的大国，拥有数千年悠久的历史和灿烂的文化。中国人口众多，是世界上最大的国家之一，拥有不同的民族和文化传统，其中汉族占主导地位。\n\n中国是一个经济强国，在全球经济体系中占据着重要地位。中国经济以制造业为主，同时近年来也在创新科技领域取得了快速发展。中国也是世界上最早的文明之一，拥有着丰富的文化遗产，包括长城、故宫、兵马俑等。\n\n中国政治制度为社会主义制度，以中国共产党领导的多党合作和政治协商制度为基础。中国在国际舞台上也扮演着重要角色，是联合国安理会常任理事国之一，参与了多个国际组织和机构。\n\n总体来说，中国是一个充满活力、多元化和富有魅力的国家，吸引着全球眼球。"
+},
+"finish_reason": "stop",
+"index": 0
+}
+]
+}

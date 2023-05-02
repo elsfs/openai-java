@@ -1,0 +1,35 @@
+[
+  {
+    "model": "text-moderation-stable",
+    "input": [
+      "我想杀了他们"
+    ]
+  },
+  {
+    "id": "modr-7B9DsNvdRvvqquIfjgPr6axhiWZww",
+    "model": "text-moderation-001",
+    "results": [
+      {
+        "flagged": true,
+        "categories": {
+          "sexual": false,
+          "hate": false,
+          "violence": true,
+          "self-harm": false,
+          "sexual/minors": false,
+          "hate/threatening": false,
+          "violence/graphic": false
+        },
+        "category_scores": {
+          "sexual": 0.00183656788431108,
+          "hate": 0.10611801594495773,
+          "violence": 0.7519179582595825,
+          "self-harm": 0.013363909907639027,
+          "sexual/minors": 0.001786368084140122,
+          "hate/threatening": 0.14632973074913025,
+          "violence/graphic": 0.020809104666113853
+        }
+      }
+    ]
+  }
+]
