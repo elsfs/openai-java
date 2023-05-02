@@ -1,5 +1,5 @@
 ```java
-       OkHttpClientOpenAIApiService service = OkHttpClientOpenAIApiService.builder("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").build();
+       OkHttpClientOpenAIApiService service = OkHttpClientOpenAIApiService.builder("xx").build();
 
 //        CreateChatCompletionRequest request = new CreateChatCompletionRequest();
 //        request.setModel("gpt-3.5-turbo-0301");
