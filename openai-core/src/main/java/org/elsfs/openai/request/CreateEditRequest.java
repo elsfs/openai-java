@@ -3,6 +3,7 @@ package org.elsfs.openai.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 /**
@@ -11,6 +12,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class CreateEditRequest extends CommonRequest {
     /**
      * ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.

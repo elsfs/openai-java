@@ -25,35 +25,6 @@
         <retrofit.version>2.9.0</retrofit.version>
         <jackson.version>2.14.1</jackson.version>
     </properties>
-    <licenses>
-        <license>
-            <name>GNU Lesser General Public License v2.1</name>
-            <url>https://github.com/elsfs/openai-java/master/LICENSE</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <scm>
-        <connection>scm:git:https://github.com/elsfs/openai-java.git</connection>
-        <developerConnection>scm:git:https://github.com/elsfs/openai-java.git</developerConnection>
-        <url>https://github.com/elsfs/openai-java</url>
-    </scm>
-    <issueManagement>
-        <url>https://github.com/elsfs/openai-java/issues</url>
-        <system>GitHub Issues</system>
-    </issueManagement>
-    <developers>
-        <developer>
-            <id>elsfs</id>
-            <name>Mingyong Zeng</name>
-            <email>2679652842(at)qq.com</email>
-            <roles>
-                <role>Developer</role>
-                <role>Architect</role>
-            </roles>
-            <timezone>+8</timezone>
-            <url>https://github.com/elsfs</url>
-        </developer>
-    </developers>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -84,209 +55,99 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <plugins>
-            <!--
-                添加maven强制插件以确保使用正确的jdk
-                https://stackoverflow.com/a/18420462/922688
-            -->
-            <plugin>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>3.3.9</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.3.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.11.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>3.2.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.5.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-gpg-plugin</artifactId>
-                    <version>3.0.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>3.3.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>3.1.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>3.1.1</version>
-                </plugin>
 
-                <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.13</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.jacoco</groupId>
-                    <artifactId>jacoco-maven-plugin</artifactId>
-                    <version>0.8.10</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://github.com/elsfs/openai-java/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/elsfs/openai-java.git</connection>
+        <developerConnection>scm:git:https://github.com/elsfs/openai-java.git</developerConnection>
+        <url>https://github.com/elsfs/openai-java</url>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/elsfs/openai-java/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>elsfs</id>
+            <name>Mingyong Zeng</name>
+            <email>2679652842(at)qq.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>Architect</role>
+            </roles>
+            <timezone>+8</timezone>
+            <url>https://github.com/elsfs</url>
+        </developer>
+    </developers>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
     <profiles>
         <profile>
-            <id>gen-java-src</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-
-        </profile>
-        <profile>
-            <id>gen-java-doc</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-        </profile>
-        <profile>
-            <id>gen-code-cov</id>
-            <activation>
-                <property>
-                    <name>env.TRAVIS</name>
-                    <value>true</value>
-                </property>
-            </activation>
+            <id>release</id>
             <build>
+                <resources>
+                    <resource>
+                        <directory>src/main/java</directory>
+<!--                        <includes>-->
+<!--                            <include>**/*.properties</include>-->
+<!--                            <include>**/*.sample</include>-->
+<!--                        </includes>-->
+                    </resource>
+                </resources>
                 <plugins>
+                    <!-- source包 -->
                     <plugin>
-                        <!--
-                            plugin docs: http://eclemma.org/jacoco/trunk/doc/
-                            for codecov.io, config example https://github.com/codecov/example-java
-                        -->
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>report</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>report</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>gen-sign</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-        </profile>
-        <profile>
-            <id>force-jdk11-when-release</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <!--
-                        add maven-enforce-plugin to make sure the right jdk is used
-                        https://stackoverflow.com/a/18420462/922688
-                    -->
-                    <plugin>
-                        <artifactId>maven-enforcer-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>enforce</goal>
-                                </goals>
-                                <configuration>
-                                    <rules>
-                                        <requireJavaVersion>
-                                            <version>11</version>
-                                        </requireJavaVersion>
-                                    </rules>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>deploy-settings</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <extensions>true</extensions>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+<!--                        <version>3.0.0</version>-->
                         <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                            <attach>true</attach>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <!-- 生成doc文档 -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
                         </configuration>
                     </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>Sonatype Nexus Snapshots</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <name>Nexus Release Repository</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 </project>

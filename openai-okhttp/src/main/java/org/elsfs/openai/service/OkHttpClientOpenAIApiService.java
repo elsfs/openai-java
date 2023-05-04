@@ -239,7 +239,6 @@ public class OkHttpClientOpenAIApiService extends AbstractOpenAIApiService {
      * @param size           The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param responseFormat The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
      * @param user           A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
-     * @return
      */
     @Override
     public ImagesResponse createImageEdit(File image, String prompt, File mask, Number n, String size, String responseFormat, String user) throws OpenaiException {
@@ -267,7 +266,6 @@ public class OkHttpClientOpenAIApiService extends AbstractOpenAIApiService {
      * @param size           The size of the generated images. Must be one of &#x60;256x256&#x60;, &#x60;512x512&#x60;, or &#x60;1024x1024&#x60;.
      * @param responseFormat The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
      * @param user           A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
-     * @return
      */
     @Override
     public ImagesResponse createImageVariation(File image, Number n, String size, String responseFormat, String user) throws OpenaiException {

@@ -10,12 +10,44 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>openai-core</artifactId>
-
+    <description>
+        opeanai core api sdk for java
+    </description>
+    <url>https://github.com/elsfs/openai-java</url>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://github.com/elsfs/openai-java/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/elsfs/openai-java.git</connection>
+        <developerConnection>scm:git:https://github.com/elsfs/openai-java.git</developerConnection>
+        <url>https://github.com/elsfs/openai-java</url>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/elsfs/openai-java/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>elsfs</id>
+            <name>Mingyong Zeng</name>
+            <email>2679652842(at)qq.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>Architect</role>
+            </roles>
+            <timezone>+8</timezone>
+            <url>https://github.com/elsfs</url>
+        </developer>
+    </developers>
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -28,6 +60,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

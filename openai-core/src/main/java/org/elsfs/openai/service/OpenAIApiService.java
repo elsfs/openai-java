@@ -19,19 +19,22 @@ import java.io.File;
 public interface OpenAIApiService {
 
     /**
+     * <a href="https://platform.openai.com/docs/api-reference/fine-tunes/create">openaai doc</a>
+     *
      * @param fineTuneId fineTuneId要取消的微调作业的ID
-     * @see <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
-     * <p>
-     * POST /fine-tunes/{fine_tune_id}/cancel
-     * <p>
-     * Immediately cancel a fine-tune job.
-     * <p>
-     * 立即取消微调作业。
+     *                   <p>
+     *                   POST /fine-tunes/{fine_tune_id}/cancel
+     *                   <p>
+     *                   Immediately cancel a fine-tune job.
+     *                   <p>
+     *                   立即取消微调作业。
+     * @return FineTune
+     * @throws OpenaiException  OpenaiException
      */
     FineTune cancelFineTune(String fineTuneId) throws OpenaiException;
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“/api”>openaai doc</a>
      * `<p>
      * POST  /answers
      * <p>
@@ -42,7 +45,7 @@ public interface OpenAIApiService {
     CreateAnswerResponse createAnswer(CreateAnswerRequest createAnswerRequest) throws OpenaiException;
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * POST /chat/completions
      * <p>
@@ -53,7 +56,7 @@ public interface OpenAIApiService {
     CreateChatCompletionResponse createChatCompletion(CreateChatCompletionRequest createChatCompletionRequest) throws OpenaiException;
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * POST  /completions
      * </p>
@@ -65,7 +68,7 @@ public interface OpenAIApiService {
     CreateCompletionResponse createCompletion(CreateCompletionRequest createCompletionRequest) throws OpenaiException;
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * GET /models
      * </p>
@@ -78,7 +81,7 @@ public interface OpenAIApiService {
 
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * POST /classifications
      * </p>
@@ -91,7 +94,7 @@ public interface OpenAIApiService {
 
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * POST /edits
      * </p>
@@ -100,7 +103,7 @@ public interface OpenAIApiService {
     CreateEditResponse createEdit(CreateEditRequest createEditRequest) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/embeddings”>openaai doc</a>
+     * <a href=“<a href="https://platform.openai.com/docs/api-reference/embeddings">...</a>”>openaai doc</a>
      *
      * <p>
      * POST /embeddings
@@ -115,15 +118,15 @@ public interface OpenAIApiService {
      * @param file    Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.  If the &#x60;purpose&#x60; is set to \\\&quot;fine-tune\\\&quot;, each line is a JSON record with \\\&quot;prompt\\\&quot; and \\\&quot;completion\\\&quot; fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
      * @param purpose The intended purpose of the uploaded documents.  Use \\\&quot;fine-tune\\\&quot; for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
      * @summary Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
-     * @see <a href=“”>openaai doc</a>
-     * @see <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
      * POST /files ['Content-Type'] = 'multipart/form-data';
      * <p>
      */
     OpenAIFile createFile(File file, String purpose) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
      * <p>
      * POST /fine-tunes
      * </p>
@@ -132,7 +135,7 @@ public interface OpenAIApiService {
     FineTune createFineTune(CreateFineTuneRequest createFineTuneRequest) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/images”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/images”>openaai doc</a>
      * <p>
      * POST /images/generations
      * </p>
@@ -151,7 +154,7 @@ public interface OpenAIApiService {
      * @param responseFormat The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
      * @param user           A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
      * @summary Creates an edited or extended image given an original image and a prompt.
-     * @see <a href=“https://platform.openai.com/docs/api-reference/images/create-edit”>openaai doc</a>
+     * <a href=“<a href="https://platform.openai.com/docs/api-reference/images/create-edit">openaai doc</a>
      * <p>
      * POST  /images/edits ['Content-Type'] = 'multipart/form-data';
      * </p>
@@ -170,7 +173,7 @@ public interface OpenAIApiService {
      * @param responseFormat The format in which the generated images are returned. Must be one of &#x60;url&#x60; or &#x60;b64_json&#x60;.
      * @param user           A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
      * @summary Creates a variation of a given image.
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * POST /images/variations ['Content-Type'] = 'multipart/form-data'
      * </p>
@@ -183,7 +186,7 @@ public interface OpenAIApiService {
     }
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/moderations/create”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/moderations/create”>openaai doc</a>
      * <p>
      * POST /moderations
      * </P>
@@ -199,7 +202,7 @@ public interface OpenAIApiService {
      *                 POST  /engines/{engine_id}/search
      *                 </p>
      *                 The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.  To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.  The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-     * @see <a href=“https://platform.openai.com/docs/api-reference/engines”>openaai doc</a>
+     *                 <a href=“https://platform.openai.com/docs/api-reference/engines”>openaai doc</a>
      */
     @Deprecated
     CreateSearchResponse createSearch(String engineId, CreateSearchRequest createSearchRequest) throws OpenaiException;
@@ -211,12 +214,12 @@ public interface OpenAIApiService {
      * @param responseFormat The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
      * @param temperature    The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
      * @param language       The language of the input audio. Supplying the input language in [ISO-639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) format will improve accuracy and latency.
-     * @summary Transcribes audio into the input language.
-     * @see <a href=“https://platform.openai.com/docs/api-reference/audio”>openaai doc</a>
-     * <p>
-     * POST /audio/transcriptions "Content-Type: multipart/form-data"
-     * </p>
-     * 创建听录
+     *                       Transcribes audio into the input language.
+     *                       <a href=“https://platform.openai.com/docs/api-reference/audio”>openaai doc</a>
+     *                       <p>
+     *                       POST /audio/transcriptions "Content-Type: multipart/form-data"
+     *                       </p>
+     *                       创建听录
      */
     CreateTranscriptionResponse createTranscription(File file, String model, String prompt, String responseFormat, Number temperature, String language) throws OpenaiException;
 
@@ -230,13 +233,13 @@ public interface OpenAIApiService {
      * @param prompt         An optional text to guide the model\\\&#39;s style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should be in English.
      * @param responseFormat The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
      * @param temperature    The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
-     * @see <a href=“https://platform.openai.com/docs/api-reference/audio/create”>openaai doc</a>
-     * <p>
-     * POST  /audio/translations  ['Content-Type'] = 'multipart/form-data'
-     * <p>
-     * 翻译
-     * Translates audio into into English.
-     * <p>
+     *                       <a href=“https://platform.openai.com/docs/api-reference/audio/create”>openaai doc</a>
+     *                       <p>
+     *                       POST  /audio/translations  ['Content-Type'] = 'multipart/form-data'
+     *                       <p>
+     *                       翻译
+     *                       Translates audio into into English.
+     *                       <p>
      */
     CreateTranslationResponse createTranslation(File file, String model, String prompt, String responseFormat, Number temperature) throws OpenaiException;
 
@@ -246,28 +249,27 @@ public interface OpenAIApiService {
 
     /**
      * @param fileId The ID of the file to use for this request
-     * @see <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
-     * <p>
-     * DELETE /files/{file_id}
-     * </p>
-     * Delete a file.
+     *               <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
+     *               <p>
+     *               DELETE /files/{file_id}
+     *               </p>
+     *               Delete a file.
      */
     DeleteFileResponse deleteFile(String fileId) throws OpenaiException;
 
     /**
      * @param model model The model to delete
-     * @see <a href=“”>openaai doc</a>
-     * <p>
-     * DELETE /models/{model}
-     * </p>
-     * Delete a fine-tuned model. You must have the Owner role in your organization.
+     *              <a href=“”>openaai doc</a>
+     *              <p>
+     *              DELETE /models/{model}
+     *              </p>
+     *              Delete a fine-tuned model. You must have the Owner role in your organization.
      */
     DeleteModelResponse deleteModel(String model) throws OpenaiException;
 
     /**
      * @param fileId The ID of the file to use for this request
-     * @return
-     * @see <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
+     * @return <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
      * <p>
      * GET /files/{file_id}/content
      * </p>
@@ -276,7 +278,7 @@ public interface OpenAIApiService {
     String downloadFile(String fileId) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/engines”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/engines”>openaai doc</a>
      * <p>
      * GET  /engines
      * </p>
@@ -287,7 +289,7 @@ public interface OpenAIApiService {
 
     /**
      * @return ListFilesResponse
-     * @see <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
      * <p>
      * GET /files
      * </P>
@@ -298,11 +300,11 @@ public interface OpenAIApiService {
     /**
      * @param fineTuneId The ID of the fine-tune job to get events for.
      * @param stream     Whether to stream events for the fine-tune job. If set to true, events will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available. The stream will terminate with a &#x60;data: [DONE]&#x60; message when the job is finished (succeeded, cancelled, or failed).  If set to false, only events generated so far will be returned.
-     * @see <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
-     * <p>
-     * GET /fine-tunes/{fine_tune_id}/events
-     * </p>
-     * Get fine-grained status updates for a fine-tune job.
+     *                   <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
+     *                   <p>
+     *                   GET /fine-tunes/{fine_tune_id}/events
+     *                   </p>
+     *                   Get fine-grained status updates for a fine-tune job.
      */
     ListFineTuneEventsResponse listFineTuneEvents(String fineTuneId, Boolean stream) throws OpenaiException;
 
@@ -311,7 +313,7 @@ public interface OpenAIApiService {
     }
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
      * <p>
      * GET /fine-tunes
      * </p>
@@ -322,42 +324,45 @@ public interface OpenAIApiService {
 
     /**
      * @param engineId The ID of the engine to use for this request
-     * @see <a href=“”>openaai doc</a>
-     * <p>
-     * GET /engines/{engine_id}
-     * </p>
-     * Retrieves a model instance, providing basic information about it such as the owner and availability.
+     *                 <a href=“”>openaai doc</a>
+     *                 <p>
+     *                 GET /engines/{engine_id}
+     *                 </p>
+     *                 Retrieves a model instance, providing basic information about it such as the owner and availability.
      */
     @Deprecated
     Engine retrieveEngine(String engineId) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/files”>openaai doc</a>
      * <p>
      * GET /files/{file_id}
      * </p>
      * Returns information about a specific file.
+     *
      * @param fileId The ID of the file to use for this request
      */
     OpenAIFile retrieveFile(String fileId) throws OpenaiException;
 
     /**
-     * @see <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
+     * <a href=“https://platform.openai.com/docs/api-reference/fine-tunes/create”>openaai doc</a>
      * <p>
      * GET /fine-tunes/{fine_tune_id}
      * </P>
      * Gets info about the fine-tune job.  [Learn more about Fine-tuning](/docs/guides/fine-tuning)
+     *
      * @param fineTuneId The ID of the fine-tune job
      * @return
      */
     FineTune retrieveFineTune(String fineTuneId) throws OpenaiException;
 
     /**
-     * @see <a href=“”>openaai doc</a>
+     * <a href=“”>openaai doc</a>
      * <p>
      * GET  /models/{model}
      * </p>
      * Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
+     *
      * @param model The ID of the model to use for this request
      */
     Model retrieveModel(String model) throws OpenaiException;

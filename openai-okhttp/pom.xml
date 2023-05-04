@@ -8,9 +8,40 @@
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <description>
+        opeanai api sdk for okhttp
+    </description>
+    <url>https://github.com/elsfs/openai-java</url>
     <artifactId>openai-okhttp</artifactId>
-
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License v2.1</name>
+            <url>https://github.com/elsfs/openai-java/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/elsfs/openai-java.git</connection>
+        <developerConnection>scm:git:https://github.com/elsfs/openai-java.git</developerConnection>
+        <url>https://github.com/elsfs/openai-java</url>
+    </scm>
+    <issueManagement>
+        <url>https://github.com/elsfs/openai-java/issues</url>
+        <system>GitHub Issues</system>
+    </issueManagement>
+    <developers>
+        <developer>
+            <id>elsfs</id>
+            <name>Mingyong Zeng</name>
+            <email>2679652842(at)qq.com</email>
+            <roles>
+                <role>Developer</role>
+                <role>Architect</role>
+            </roles>
+            <timezone>+8</timezone>
+            <url>https://github.com/elsfs</url>
+        </developer>
+    </developers>
     <dependencies>
         <dependency>
             <groupId>org.elsfs.openai</groupId>

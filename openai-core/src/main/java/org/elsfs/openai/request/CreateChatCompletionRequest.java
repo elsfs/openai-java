@@ -3,6 +3,7 @@ package org.elsfs.openai.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.elsfs.openai.common.ChatCompletionRequestMessageRoleEnum;
 
@@ -16,18 +17,19 @@ import java.util.Map;
  */
 @Data
 @Accessors(chain = true)
+@EqualsAndHashCode(callSuper = true)
 public class CreateChatCompletionRequest extends CommonRequest {
     /**
      * D of the model to use for completion. You can select one of `ada`, `babbage`, `curie`, or `davinci`.
      * 要使用的模型的ID。目前，仅支持“gpt-3.5-turbo”和“gpt-3.5-turbo-0301”。
      */
-   private String model;
+    private String model;
     /**
      * The messages to generate chat completions for, in the [chat format](/docs/guides/chat/introduction).
      * 要为生成聊天完成的消息，格式为[聊天格式]（/docs/guideschat/introduction）。
      * https://platform.openai.com/docs/guides/chat
      */
-    private  List<Message> messages;
+    private List<Message> messages;
     /**
      * optional
      * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.  We generally recommend altering this or `temperature` but not both.
@@ -45,9 +47,6 @@ public class CreateChatCompletionRequest extends CommonRequest {
      * optional
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model\'s likelihood to talk about new topics.  [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
      * *介于-2.0和2.0之间的数字。到目前为止，正值会根据新标记是否出现在文本中来惩罚它们，从而增加模型谈论新主题的可能性。[查看有关频率和存在惩罚的更多信息。]（/docs/api reference/parameter details）
-     *
-     * @type {number}
-     * @memberof CreateChatCompletionRequest
      */
     private Float presencePenalty;
     /**
